@@ -1,0 +1,11 @@
+infile = open("curtis - Copy.txt", "r")
+outfile = open("curtis-new.txt", "w")
+x = 0
+
+for line in infile:
+    print(line, file=outfile)
+    x = x + 1
+    print(x)
+
+infile.close()
+outfile.close()
