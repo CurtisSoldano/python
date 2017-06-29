@@ -1,0 +1,23 @@
+#investment future value calculator
+
+def intro():
+    print("This program computes the future value of a 10 year investment")
+    print("by entering a starting value and an annual percentage rate(APR)")
+
+def input():
+    principal = eval(input("Enter starting investment value "))
+    apr = eval(input("Enter the annual percentage rate "))
+    years = eval(input("Enter the number of years the investment will grow "))
+    #return principal, apr, years
+
+def main():
+    for i in range(years):
+        principal = principal * (1 + apr)
+
+    print("The value in ", years, " years is ", principal)
+
+intro()
+
+input()
+
+#main()
