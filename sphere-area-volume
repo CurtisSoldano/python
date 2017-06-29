@@ -1,0 +1,9 @@
+#calculate the volume and surface area of a sphere
+#from a user input radius
+#use V=4/3*Pi*R**2 and A=4*Pi*R**2
+radius = 0
+print("this program will calculate the volume and surface area of a sphere based\n on a radius")
+print()
+radius = eval(input("enter the radius of the sphere "))
+area = 4*3.141*(radius**2)
+volume = 4/3*3.141*(radius**3)
