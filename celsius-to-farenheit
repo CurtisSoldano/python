@@ -1,0 +1,10 @@
+# celsius to farenheit conversion
+
+def main():
+    celsius = eval(input("What is the temperature in Celsius?"))
+    farenheit = 9/5 * int(celsius) + 32
+    print ("The temperature is ", farenheit)
+
+
+main()
+
