@@ -1,0 +1,8 @@
+X=0
+
+while True:
+    X=X+1
+    print(X)
+    if x = 22
+        break
+    
