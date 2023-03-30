@@ -1,0 +1,60 @@
+import requests
+from tkinter import *
+import json
+
+# Replace 'YOUR_API_KEY' with your actual API key from OpenWeatherMap
+API_KEY = 'XXXX'
+
+def get_weather(zip_code):
+    url = f'http://api.openweathermap.org/data/2.5/weather?zip={zip_code},us&appid={API_KEY}&units=imperial'
+    response = requests.get(url)
+    weather_data = json.loads(response.text)
+    return weather_data
+
+def display_weather():
+    zip_code = entry.get()
+    weather_data = get_weather(zip_code)
+    
+    if 'name' in weather_data:
+        location = weather_data['name']
+    elif 'city' in weather_data:
+        location = weather_data['city']['name']
+    else:
+        location = "Unknown"
+
+    if 'main' in weather_data and 'temp' in weather_data['main']:
+        temperature = f"{weather_data['main']['temp']}°F"
+    else:
+        temperature = "Unknown"
+
+    if 'weather' in weather_data and len(weather_data['weather']) > 0:
+        weather_description = weather_data['weather'][0]['description']
+    else:
+        weather_description = "Unknown"
+    
+    weather_text = f"Location: {location}\nTemperature: {temperature}\nWeather: {weather_description}"
+    label.config(text=weather_text)
+
+root = Tk()
+root.title("Weather App")
+
+frame = Frame(root)
+frame.pack(pady=10)
+
+entry = Entry(frame, width=10)
+entry.pack(padx=10, pady=10)
+
+button = Button(frame, text="Get Weather", command=display_weather)
+button.pack(padx=10, pady=10)
+
+label = Label(root, text="")
+label.pack(padx=10, pady=10)
+
+root.mainloop()
+
+
+
+
+
+
+
